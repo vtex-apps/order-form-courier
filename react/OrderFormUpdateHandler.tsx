@@ -21,7 +21,7 @@ const OrderFormUpdateHandler: React.FC = () => {
     return () => {
       $(window).off('orderFormUpdated.vtex', handleOrderFormUpdated)
     }
-  }, [])
+  }, [eventHandler])
 
   return <></>
 }

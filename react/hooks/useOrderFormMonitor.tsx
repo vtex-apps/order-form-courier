@@ -5,7 +5,8 @@ import type { OrderFormEventHandler } from '../typings/orderFormEvent'
 
 export const useOrderFormMonitor = (handlers: OrderFormEventHandler[]) => {
   const [orderForm, setOrderForm] = useState<OrderForm>(
-    window?.vtexjs.checkout.orderForm
+    // This is used to clone the orderForm state and prevent referencing it directly.
+    JSON.parse(JSON.stringify(window?.vtexjs.checkout.orderForm))
   )
 
   const handleOrderFormChange = useCallback(
@@ -14,7 +15,7 @@ export const useOrderFormMonitor = (handlers: OrderFormEventHandler[]) => {
         handler(orderForm, eventOrderForm)
       )
 
-      setOrderForm(eventOrderForm)
+      setOrderForm(JSON.parse(JSON.stringify(eventOrderForm)))
 
       return changes
     },
