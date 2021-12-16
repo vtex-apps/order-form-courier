@@ -5,11 +5,14 @@
   "title": "Order Form Courier",
   "description": "App that sends Order Form updates to Courier by listening to the checkout events.",
   "categories": [],
-  "dependencies": {},
+  "dependencies": {
+    "vtex.pixel-interfaces": "1.x"
+  },
   "builders": {
     "docs": "0.x",
     "pages": "0.x",
     "react": "2.x",
+    "pixel": "0.x",
     "node": "6.x"
   },
   "credentialType": "absolute",
